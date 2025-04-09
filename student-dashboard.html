@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - School Management System</title>
+    <link rel="stylesheet" href="student-styles.css">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="" alt="School Logo" class="logo">
+                <h3>Student Portal</h3>
+            </div>
+            <ul class="nav-links">
+                <li data-section="dashboard" class="active">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li data-section="course-videos">
+                    <i class="fas fa-video"></i>
+                    <span>Course Videos</span>
+                </li>
+               
+                <li data-section="attendance">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Attendance</span>
+                </li>
+                <li data-section="assessment">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Health Assessment</span>
+                </li>
+                <li data-section="results">
+                    <i class="fas fa-award"></i>
+                    <span>Results</span>
+                </li>
+                <li class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <div class="section-header">
+                    <h2>Welcome, Student</h2>
+                    <div class="date-time">
+                        <span id="currentDate"></span>
+                        <span id="currentTime"></span>
+                    </div>
+                </div>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-book"></i>
+                        <div class="stat-info">
+                            <h3>Current Class</h3>
+                            <p id="currentClass">--</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar"></i>
+                        <div class="stat-info">
+                            <h3>Attendance</h3>
+                            <p>95%</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-tasks"></i>
+                        <div class="stat-info">
+                            <h3>Pending Assignments</h3>
+                            <p>2</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <div class="stat-info">
+                            <h3>Average Grade</h3>
+                            <p>A</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-activities">
+                    <h3>Recent Activities</h3>
+                    <div class="activity-list" id="activityList">
+                        <!-- Activities will be populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Course Videos Section -->
+            <section id="course-videos" class="section">
+                <div class="section-header">
+                    <h2>Course Videos</h2>
+                </div>
+                <div class="video-filters">
+                    <div class="form-group">
+                        <label for="filterVideoSubject">Filter by Subject</label>
+                        <select id="filterVideoSubject">
+                            <option value="">All Subjects</option>
+                            <option value="mathematics">Mathematics</option>
+                            <option value="science">Science</option>
+                            <option value="english">English</option>
+                            <option value="history">History</option>
+                            <option value="physics">Physics</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="biology">Biology</option>
+                            <option value="computer">Computer Science</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <div class="video-grid" id="videoGrid">
+                        <!-- Videos will be populated dynamically -->
+                    </div>
+                </div>
+                
+                <!-- Video Modal (will be inserted dynamically) -->
+            </section>
+
+            <!-- Assignments Section -->
+            <section id="assignments" class="section">
+                <div class="section-header">
+                    <h2>Assignments</h2>
+                </div>
+                <div class="assignments-list">
+                    <!-- Assignments will be populated dynamically -->
+                </div>
+            </section>
+
+            <!-- Attendance Section -->
+            <section id="attendance" class="section">
+                <div class="section-header">
+                    <h2>Attendance Record</h2>
+                </div>
+                <div class="attendance-stats">
+                    <div class="attendance-summary-card">
+                        <div class="attendance-percentage">
+                            <span id="attendancePercentage">--</span>
+                            <span class="percentage-label">Attendance Rate</span>
+                        </div>
+                        <div class="attendance-details">
+                            <div class="attendance-detail">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Present: <span id="presentDays">--</span> days</span>
+                            </div>
+                            <div class="attendance-detail">
+                                <i class="fas fa-times-circle"></i>
+                                <span>Absent: <span id="absentDays">--</span> days</span>
+                            </div>
+                            <div class="attendance-detail">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <span>Late: <span id="lateDays">--</span> days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="attendance-history">
+                    <h3>Attendance History</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Class</th>
+                                <th>Section</th>
+                                <th>Marked By</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendanceHistoryTable">
+                            <!-- Attendance history will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Assessment Section -->
+            <section id="assessment" class="section">
+                <div class="section-header">
+                    <h2>Health Assessment</h2>
+                </div>
+                <div class="assessment-summary">
+                    <div class="health-score-cards">
+                        <div class="health-score-card mental">
+                            <h3>Mental Health Score</h3>
+                            <div class="health-score" id="mentalHealthScore">--</div>
+                            <div class="health-status" id="mentalHealthStatus">No data available</div>
+                        </div>
+                        <div class="health-score-card physical">
+                            <h3>Physical Health Score</h3>
+                            <div class="health-score" id="physicalHealthScore">--</div>
+                            <div class="health-status" id="physicalHealthStatus">No data available</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="assessment-history">
+                    <h3>Assessment History</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Mental Health</th>
+                                <th>Physical Health</th>
+                                <th>Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody id="assessmentHistoryTable">
+                            <!-- Assessment history will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Academic Results Section -->
+            <section id="results" class="section">
+                <div class="section-header">
+                    <h2>Academic Results</h2>
+                </div>
+                <div class="results-summary">
+                    <div class="grade-card">
+                        <div class="grade-display">
+                            <span id="averageGrade">--</span>
+                            <span class="grade-label">Average Grade</span>
+                        </div>
+                        <div class="grade-details">
+                            <div class="grade-detail">
+                                <i class="fas fa-trophy"></i>
+                                <span>Highest: <span id="highestMark">--</span></span>
+                            </div>
+                            <div class="grade-detail">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Average: <span id="averageMark">--</span>%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-details">
+                    <h3>Subject-wise Performance</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Marks</th>
+                                <th>Grade</th>
+                                <th>Class Average</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="marksHistoryTable">
+                            <!-- Marks history will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="student-script.js"></script>
+</body>
+</html>

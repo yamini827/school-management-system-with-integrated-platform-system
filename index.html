@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Ritham School Management System</h1>
+                <p>Welcome! Please select your login type</p>
+            </div>
+            
+            <div class="login-options">
+                <div class="login-card" onclick="showLoginForm('student')">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Student/Parent Login</h3>
+                </div>
+                
+                <div class="login-card" onclick="showLoginForm('faculty')">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Faculty Login</h3>
+                </div>
+                
+                <div class="login-card" onclick="showLoginForm('admin')">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Admin Login</h3>
+                </div>
+            </div>
+
+            <div class="login-form" id="loginForm">
+                <h2 id="loginTitle">Login</h2>
+                <form id="form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Login</button>
+                    </div>
+                    <div class="form-group">
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

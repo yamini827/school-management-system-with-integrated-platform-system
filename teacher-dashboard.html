@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - School Management System</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Teacher Panel</h2>
+            </div>
+            <ul class="nav-links">
+                <li data-section="dashboard" class="active">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li data-section="classes">
+                    <i class="fas fa-chalkboard"></i>
+                    <span>My Classes</span>
+                </li>
+                <li data-section="attendance">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Attendance</span>
+                </li>
+                <li data-section="assignments">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Health Assessment</span>
+                </li>
+                <li data-section="marks">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Academic Marks</span>
+                </li>
+                <li class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="user-info">
+                    <span class="teacher-name">Teacher Name</span>
+                    <img src="https://img.freepik.com/premium-vector/bearded-man-illustration-character-avatar_101266-29802.jpg" alt="Teacher"  class="teacher-avatar" style="width: 50px;">
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-area">
+                <!-- Dashboard Overview -->
+                <section id="dashboard" class="section active">
+                    <h2>Welcome, <span id="teacherName">Teacher</span>!</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-chalkboard"></i>
+                            <div class="stat-info">
+                                <h3>Total Classes</h3>
+                                <p>5</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-user-graduate"></i>
+                            <div class="stat-info">
+                                <h3>Total Students</h3>
+                                <p>150</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-book"></i>
+                            <div class="stat-info">
+                                <h3>Pending Assignments</h3>
+                                <p>12</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-clock"></i>
+                            <div class="stat-info">
+                                <h3>Next Class</h3>
+                                <p>Secondary A</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activities -->
+                    <div class="recent-activities">
+                        <h3>Recent Activities</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div class="activity-info">
+                                    <p>Attendance marked for Secondary A</p>
+                                    <small>2 minutes ago</small>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-star"></i>
+                                <div class="activity-info">
+                                    <p>Grades updated for Primary B</p>
+                                    <small>1 hour ago</small>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <i class="fas fa-bell"></i>
+                                <div class="activity-info">
+                                    <p>New assignment posted</p>
+                                    <small>3 hours ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="profile" class="section">
+                    <h2>My Profile</h2>
+                    <div class="profile-container">
+                        <div class="profile-header">
+                            <img src="" alt="Teacher" class="profile-avatar">
+                            <h3 id="profileName">Teacher Name</h3>
+                            <p id="profileId">Teacher ID</p>
+                        </div>
+                        <div class="profile-details">
+                            <div class="detail-group">
+                                <label>Department</label>
+                                <p id="profileDepartment">Department Name</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Qualification</label>
+                                <p id="profileQualification">Qualification</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Subjects</label>
+                                <p id="profileSubjects">Subject 1, Subject 2</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Classes</label>
+                                <p id="profileClasses">Secondary A, Primary B</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Email</label>
+                                <p id="profileEmail">teacher@example.com</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Phone</label>
+                                <p id="profilePhone">+1234567890</p>
+                            </div>
+                            <div class="detail-group">
+                                <label>Address</label>
+                                <p id="profileAddress">123 Teacher Street, City</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Classes Section -->
+                <section id="classes" class="section">
+                    <h2>My Classes</h2>
+                    <div class="classes-container">
+                        <div class="classes-grid" id="classesGrid">
+                            <!-- Class cards will be dynamically added here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Health Assessment Section -->
+                <section id="assignments" class="section">
+                    <h2>Student Health Assessment</h2>
+                    <div class="health-assessment-container">
+                        <!-- Assessment Filters -->
+                        <div class="assessment-filters">
+                            <div class="form-group">
+                                <label for="assessmentClass">Select Class</label>
+                                <select id="assessmentClass" onchange="loadStudentsForAssessment()">
+                                    <option value="">Select Class</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="assessmentSection">Select Section</label>
+                                <select id="assessmentSection" onchange="loadStudentsForAssessment()">
+                                    <option value="">Select Section</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="assessmentDate">Assessment Date</label>
+                                <input type="date" id="assessmentDate" required>
+                            </div>
+                        </div>
+
+                        <!-- Assessment Form -->
+                        <div class="assessment-form">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Student ID</th>
+                                        <th>Name</th>
+                                        <th>Mental Health Assessment</th>
+                                        <th>Physical Health Assessment</th>
+                                        <th>Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="assessmentTableBody">
+                                    <!-- Students will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="assessment-actions">
+                            <button class="submit-btn" onclick="submitHealthAssessment()">Submit Assessment</button>
+                        </div>
+                    </div>
+
+                    <!-- Previous Assessments -->
+                    <div class="previous-assessments">
+                        <h3>Previous Assessments</h3>
+                        <div class="assessment-filters">
+                            <div class="form-group">
+                                <label for="viewClass">Class</label>
+                                <select id="viewClass" onchange="loadPreviousAssessments()">
+                                    <option value="">Select Class</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="viewSection">Section</label>
+                                <select id="viewSection" onchange="loadPreviousAssessments()">
+                                    <option value="">Select Section</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="assessment-history" id="assessmentHistory">
+                            <!-- Previous assessments will be loaded here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Schedule Section -->
+                <section id="schedule" class="section">
+                    <h2>Schedule</h2>
+                    <div class="schedule-container">
+                        <div class="schedule-grid" id="scheduleGrid">
+                            <!-- Schedule items will be dynamically added here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Attendance Section -->
+                <section id="attendance" class="section">
+                    <div class="section-header">
+                        <h2>Take Attendance</h2>
+                    </div>
+                    <div class="attendance-container">
+                        <div class="attendance-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="attendanceClass">Class</label>
+                                    <select id="attendanceClass" onchange="populateSections()">
+                                        <option value="">Select Class</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="attendanceSection">Section</label>
+                                    <select id="attendanceSection" onchange="loadStudentsForAttendance()">
+                                        <option value="">Select Section</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="attendanceDate">Date</label>
+                                    <input type="date" id="attendanceDate">
+                                </div>
+                            </div>
+                            <div id="noStudentsMessage" class="no-students-message">
+                                Please select class and section to load students
+                            </div>
+                            <div id="studentsAttendanceList" style="display: none;"></div>
+                            <div id="attendanceActions" style="display: none;" class="form-actions">
+                                <button id="saveAttendanceBtn" class="save-attendance-btn">
+                                    <i class="fas fa-save"></i> Save Attendance
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Academic Marks Section -->
+                <section id="marks" class="section">
+                    <div class="section-header">
+                        <h2>Student Academic Marks</h2>
+                    </div>
+                    <div class="marks-container">
+                        <!-- Marks Filters -->
+                        <div class="marks-filters">
+                            <div class="form-group">
+                                <label for="marksClass">Select Class</label>
+                                <select id="marksClass" onchange="loadStudentsForMarks()">
+                                    <option value="">Select Class</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="marksSection">Select Section</label>
+                                <select id="marksSection" onchange="loadStudentsForMarks()">
+                                    <option value="">Select Section</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="marksSubject">Select Subject</label>
+                                <select id="marksSubject">
+                                    <option value="">Select Subject</option>
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="Science">Science</option>
+                                    <option value="English">English</option>
+                                    <option value="History">History</option>
+                                    <option value="Physics">Physics</option>
+                                    <option value="Chemistry">Chemistry</option>
+                                    <option value="Biology">Biology</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="marksDate">Assessment Date</label>
+                                <input type="date" id="marksDate" required>
+                            </div>
+                        </div>
+
+                        <!-- Marks Form -->
+                        <div class="marks-form">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Student ID</th>
+                                        <th>Name</th>
+                                        <th>Marks (out of 100)</th>
+                                        <th>Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="marksTableBody">
+                                    <!-- Students will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="marks-actions">
+                            <button class="submit-btn" id="submitMarksBtn">Submit Marks</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Other sections will be added here -->
+            </div>
+        </main>
+    </div>
+    <script src="teacher-script.js"></script>
+
+    <!-- Attendance Summary Popup -->
+    <div class="popup-overlay" id="attendancePopup">
+        <div class="attendance-popup">
+            <div class="popup-header">
+                <h3>Attendance Summary</h3>
+                <button class="close-popup" onclick="closeAttendancePopup()">&times;</button>
+            </div>
+            <div class="popup-content">
+                <div class="attendance-summary">
+                    <p>Date: <span id="summaryDate"></span></p>
+                    <p>Class: <span id="summaryClass"></span></p>
+                    <p>Section: <span id="summarySection"></span></p>
+                    <p>Total Students: <span id="summaryTotal"></span></p>
+                    <p>Present: <span id="summaryPresent"></span></p>
+                    <p>Absent: <span id="summaryAbsent"></span></p>
+                    <p>Late: <span id="summaryLate"></span></p>
+                </div>
+                <div class="absent-student-list" id="absentStudentList">
+                    <!-- Absent students will be listed here -->
+                </div>
+                <div class="popup-actions">
+                    <button class="btn btn-secondary" onclick="closeAttendancePopup()">Close</button>
+                    <button class="btn btn-primary" onclick="sendNotifications()">Send Notifications</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
