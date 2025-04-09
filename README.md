@@ -1,0 +1,1 @@
+# school-management-system-with-integrated-platform-system
